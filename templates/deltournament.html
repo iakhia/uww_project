@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<form  method="delete">
+    {% csrf_token %}
+    <!-- <div class="form-group" align="center">
+        
+        <input type="text" class="form-control form-control-user"
+            placeholder="Введите событие", name="tournament", required><br>
+        
+        <input type="text" class="form-control form-control-user"
+            placeholder="Введите адрес", name="address", required><br>
+        
+        <input type="text" class="form-control form-control-user"
+            placeholder="Введите дату проведения", name="date", required><br>
+
+        <input type="file" name="image"
+        accept="image/png, image/jpeg"><br>
+    </div> -->
+    <div align="center">
+        <button class="btn btn-primary">Delete tournament</button>
+    </div>

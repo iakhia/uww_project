@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<body>
+    {% load static %}
+    <link href="{% static 'css/profile.css' %} " rel="stylesheet">
+
+
+    <div class="card">
+        <div class="card__img">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0NvzzZSNRo9Keu668EYwvw3mWNpg8Auf_AbihXkz3G_BLmhKLZV3YsfzH-fJtTrFR_mA&usqp=CAU" alt="...">
+        </div>
+        <div class="card__name">
+            <h2>{{ user }}</h2>
+        </div>
+        <div class="card__job">
+            <span>{{ profile_pic }}</span>
+        </div>
+        <div class="card__link">
+            <a href="#">
+                <i class='bx bxl-twitter'></i>
+            </a>
+            <a href="#">
+                <i class='bx bxl-youtube' ></i>
+            </a>
+            <a href="https://t.me/yazikarabskiy1">
+                <i class='bx bxl-telegram' ></i>
+            </a>
+            <a href="https://github.com/">
+                <i class='bx bxl-github' ></i>
+            </a>
+        </div>
+    {% if request.user.is_authenticated %}
+
+    <div class="card__btn">
+        <a class="dropdown-item" href="{% url 'logout' %}" data-toggle="modal" data-target="#logoutModal">
+            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+        <button class="card__btn-contact">Logout</button>
+        </a>
+    </div>
+            
+    {% else %}
+            
+    <div class="card__btn">
+        <a class="dropdown-item" href="{% url 'login' %}" data-toggle="modal" data-target="#logoutModal">
+            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+        <button class="card__btn-contact">Login</button>
+        </a>
+    </div>
+    {% endif %}
+    </div>
+ 
+</div>
+</body>
+<script src="./assets/js/html.js"></script>
+{% endblock %}
