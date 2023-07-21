@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<p>Вы уверены что хотите удалить: {{ tournaments.name }}?</p>
+
+<form action="" method="POST">
+  {% csrf_token %}
+  <input type="submit" value="Да, удалить.">
+</form>
+  
+{% endblock %}
+  
