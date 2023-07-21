@@ -8,8 +8,8 @@ from uww.views import HomePageView, TournamentView,TournamentAddView, Tournament
 urlpatterns = [
     path("", HomePageView.as_view(), name="home"),
     path("tournament_add/", TournamentAddView.as_view(), name="tournament_add"),
-    path("deltournament/", TournamentDeleteView.as_view(), name="deltournament"),
     path("tournament/<int:pk>/", AboutTournamentView.as_view(), name="tournament"),
+    path("tournament/delete/<int:pk>/", TournamentDeleteView.as_view(), name="delete_tournament"),
 ]
 router = DefaultRouter()
 router.register("api/v1/tournaments", TournamentViewSet, basename="tournaments")

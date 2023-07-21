@@ -1,6 +1,7 @@
 from typing import Any
 from django.db.models.query import QuerySet
-from django.views.generic import ListView, View, DetailView
+from django.urls import reverse_lazy
+from django.views.generic import ListView, View, DetailView, DeleteView
 from rest_framework.viewsets import ModelViewSet
 from django.shortcuts import render, redirect
 from .models import Tournament
@@ -50,14 +51,11 @@ class TournamentView(ListView):
         return
     
 
-class TournamentDeleteView(ListView):
-    template_name = 'tournament.html'
-    # # context_object_name = 'tournaments'
+class TournamentDeleteView(DeleteView):
+    model = Tournament
+    context_object_name = 'tournaments'
+    success_url = reverse_lazy('home')
 
-    def get_queryset(self):
-        tournament = Tournament.objects.get(id=69)
-        tournament.delete()
-        return redirect('home')
     
 
 class TournamentViewSet(ModelViewSet):
